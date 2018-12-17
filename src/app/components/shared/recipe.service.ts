@@ -1,12 +1,10 @@
 import { Recipe } from '../../models/recipe.model';
-import { EventEmitter, Injectable } from '../../../../node_modules/@angular/core';
+import { Injectable } from '../../../../node_modules/@angular/core';
 import { Ingredient } from '../../models/ingredient.model';
 import { ShoppingListService } from './shopping-list.service';
 
 @Injectable()
 export class RecipeService {
-
-    recipeSelected = new EventEmitter<Recipe>();
   
     private recipes: Recipe[] = [
         new Recipe('Dinner', 'Just awesome!',
