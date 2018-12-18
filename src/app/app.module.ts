@@ -9,7 +9,7 @@ import { RecipesComponent } from './components/recipes/recipes.component';
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 import { RecipeItemComponent } from './components/recipe-item/recipe-item.component';
 import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { DropdownDirective } from './components/shared/dropdown.directive';
 import { ShoppingListService } from './components/shared/shopping-list.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,7 +33,8 @@ import { RecipeEditComponent } from './components/recipe-edit/recipe-edit.compon
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
