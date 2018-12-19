@@ -1,4 +1,6 @@
 import { Component} from '@angular/core';
+import { DatabaseStorageService } from '../shared/data-storage.service';
+import { Recipe } from '../../models/recipe.model';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +9,20 @@ import { Component} from '@angular/core';
 })
 export class HeaderComponent {
 
+    constructor(private dsService: DatabaseStorageService) {}
 
+    onSaveData(){
+        this.dsService.storeRecipes()
+        .subscribe(
+            (response: Response) =>{
+                console.log(response);
+            }
+        );
+    }
+
+    onFetchData(){
+        this.dsService.getRecipes();
+    }
 
 
 }
