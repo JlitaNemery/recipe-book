@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { DatabaseStorageService } from '../shared/data-storage.service';
 import { Recipe } from '../../models/recipe.model';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,9 @@ import { Recipe } from '../../models/recipe.model';
 })
 export class HeaderComponent {
 
-    constructor(private dsService: DatabaseStorageService) {}
+    constructor(
+        private dsService: DatabaseStorageService,
+        private authService: AuthService) {}
 
     onSaveData(){
         this.dsService.storeRecipes()
@@ -25,4 +28,7 @@ export class HeaderComponent {
     }
 
 
+    onLogout(){
+        this.authService.logout();
+    }
 }
