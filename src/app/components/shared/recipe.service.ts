@@ -1,4 +1,4 @@
-import { Recipe } from '../../models/recipe.model';
+import { Recipe } from '../recipes/recipe.model';
 import { Injectable } from '../../../../node_modules/@angular/core';
 import { Ingredient } from '../../models/ingredient.model';
 import { ShoppingListService } from './shopping-list.service';

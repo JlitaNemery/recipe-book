@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
-import { Ingredient } from '../../models/ingredient.model';
-import { ShoppingListService } from '../shared/shopping-list.service';
-import { NgForm } from '../../../../node_modules/@angular/forms';
-import { ValueTransformer } from '../../../../node_modules/@angular/compiler/src/util';
-import { Subscription } from '../../../../node_modules/rxjs';
+import { Ingredient } from '../../../models/ingredient.model';
+import { ShoppingListService } from '../../shared/shopping-list.service';
+import { NgForm } from '../../../../../node_modules/@angular/forms';
+import { Subscription } from '../../../../../node_modules/rxjs';
 
 @Component({
   selector: 'app-shopping-list-edit',

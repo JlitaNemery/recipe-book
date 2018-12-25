@@ -1,6 +1,5 @@
 import { Component} from '@angular/core';
 import { DatabaseStorageService } from '../shared/data-storage.service';
-import { Recipe } from '../../models/recipe.model';
 import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({

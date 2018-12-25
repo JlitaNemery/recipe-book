@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '../../../../node_modules/@angular/router';
-import { FormGroup, FormControl, FormArray, Validators } from '../../../../node_modules/@angular/forms';
+import { ActivatedRoute, Params, Router } from '../../../../../node_modules/@angular/router';
+import { FormGroup, FormControl, FormArray, Validators } from '../../../../../node_modules/@angular/forms';
 
-import { RecipeService } from '../shared/recipe.service';
+import { RecipeService } from '../../shared/recipe.service';
 
 @Component({
   selector: 'app-recipe-edit',
