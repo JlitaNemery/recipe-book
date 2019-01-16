@@ -2,43 +2,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { ShoppingListComponent } from './components/shopping-list/shopping-list/shopping-list.component';
-import { ShoppingListEditComponent } from './components/shopping-list/shopping-list-edit/shopping-list-edit.component';
-import { FormsModule } from '@angular/forms'; 
-import { ShoppingListService } from './components/shared/shopping-list.service';
 import { AppRoutingModule } from './app-routing.module';
-import { RecipeService } from './components/shared/recipe.service';
 import { HttpClientModule } from '@angular/common/http';
-import { DatabaseStorageService } from './components/shared/data-storage.service';
-import { SignupComponent } from './auth/signup/signup.component';
-import { SigninComponent } from './auth/signin/signin.component';
-import { AuthService } from './auth/auth.service';
-import { AuthGuard } from './auth/auth-guard.service';
-import { RecipesModule } from './components/recipes/recipes.module';
+import { SharedModule } from './components/shared/shared.module';
+import { ShoppingListModule } from './components/shopping-list/shopping-list.module';
+import { AuthModule } from './auth/auth.module';
+import { CoreModule } from './core/core.module';
+import { StoreModule } from '@ngrx/store';
+import { shoppingListReducer } from './components/shopping-list/ngrx/shopping-list.reducers';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    ShoppingListComponent,
-    ShoppingListEditComponent,
-    SignupComponent,
-    SigninComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpClientModule,  
-    RecipesModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    SharedModule,
+    ShoppingListModule,
+    AuthModule,
+    CoreModule,
+    StoreModule.forRoot({shoppingList: shoppingListReducer})
   ],
   providers: [
-    ShoppingListService, 
-    RecipeService, 
-    DatabaseStorageService,
-    AuthService,
-    AuthGuard
   ],
 
   bootstrap: [AppComponent]
