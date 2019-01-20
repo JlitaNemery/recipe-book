@@ -3,9 +3,9 @@ import { HeaderComponent } from "./header/header.component";
 import { HomeComponent } from "./home/home.component";
 import { SharedModule } from "../components/shared/shared.module";
 import { AppRoutingModule } from "../app-routing.module";
-import { RecipeService } from "../components/shared/recipe.service";
-import { DatabaseStorageService } from "../components/shared/data-storage.service";
-import { AuthService } from "../auth/auth.service";
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../components/shared/auth.interceptor';
+import { LoggingInterceptor } from '../components/shared/logging.interceptor';
 
 @NgModule({
     declarations: [
@@ -21,9 +21,8 @@ import { AuthService } from "../auth/auth.service";
         HeaderComponent
     ],
     providers: [
-        RecipeService, 
-        DatabaseStorageService,
-        AuthService
+        {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+        {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}
     ]
 })
 export class CoreModule{}
